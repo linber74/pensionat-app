@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pensionat-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pensionat-db
+  template:
+    metadata:
+      labels:
+        app: pensionat-db
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:8
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pensionat-secrets
+                  key: DB_PASSWORD
+            - name: MYSQL_DATABASE
+              value: pensionat_db
+          ports:
+            - containerPort: 3306
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: pensionat-db
+spec:
+  selector:
+    app: pensionat-db
+  ports:
+    - port: 3306
+      targetPort: 3306
