@@ -33,4 +33,6 @@ build/
 .vscode/
 
 .env
-k8s/secrets.yaml
+k8s/secret.yaml
+*.log
+*.log.*.gz
