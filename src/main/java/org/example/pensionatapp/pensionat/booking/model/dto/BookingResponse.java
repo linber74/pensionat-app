@@ -14,5 +14,4 @@ public record BookingResponse(
         LocalDate endDate,
         String status,
         boolean extraBedIncluded
-) {
-}
+) {}

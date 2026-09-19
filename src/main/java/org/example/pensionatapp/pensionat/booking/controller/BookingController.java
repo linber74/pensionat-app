@@ -90,5 +90,4 @@ public class BookingController {
         bookingService.unlinkingBookings(customerId);
         return ResponseEntity.noContent().build();
     }
-
 }

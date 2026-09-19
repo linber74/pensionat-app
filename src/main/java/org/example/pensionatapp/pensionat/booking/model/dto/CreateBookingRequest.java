@@ -21,5 +21,4 @@ public record CreateBookingRequest(
         LocalDate endDate,
 
         boolean extraBedRequested
-) {
-}
+) {}
