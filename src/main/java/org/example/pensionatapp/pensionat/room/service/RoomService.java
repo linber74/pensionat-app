@@ -151,6 +151,6 @@ public class RoomService {
                     logger.warn("Room with id{} not found", id);
                     return new NotFoundException("Rummet med id " + id + " hittades inte");
 
-        } );
+        });
     }
 }
